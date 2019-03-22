@@ -243,3 +243,91 @@ int main(void) {
 	return 0;
 }
 ```
+
+//-----------------------------------------------------------------------------
+4. What is semaphore?
+
+//-----------------------------------------------------------------------------
+5. Difference between mutexes and semaphores?
+    * A mutex object enables one thread into a controlled section, forcing other threads which tries to gain access to that section to wait until the first thread has moved out from that section
+    * Semaphore allows multiple access to shared resources
+    
+    * Mutex can only be released by thread which had acquired it
+    * A semaphore can be signaled from any other thread or process.
+    
+    * Mutex will always have a known owner
+    * While for semaphore you won’t know which thread we are blocking on
+    
+    * Mutex is also a tool that is used to provide deadlock-free mutual exclusion (either consumer or producer can have the key and proceed with their work)
+    * Semaphore is a synchronization tool to overcome the critical section problem
+    
+    * Mutexes by definition are binary semaphores, so there are two states locked or unlocked
+    * Semaphores are usually referred to counted locks
+
+//-----------------------------------------------------------------------------
+6.  Set an integer variable at the absolute address 0x67EF to the value 0x88AA. 
+    The compiler is a pure ANSI compiler. Write code to accomplish this task.
+
+```c
+int main(void)
+{
+    //1
+	int *ptr;
+    ptr = (int *)0x67EF;
+    *ptr = 0x88AA;
+
+    //2
+    *(int * const)(0x67EF) = 0x88AA;
+	return 0;
+}
+```
+
+//-----------------------------------------------------------------------------
+7. What does the keyword volatile mean? Give some examples of its use.
+A volatile variable is one that can change unexpectedly. Consequently, the compiler can make no assumptions about the value of the variable. In particular, the optimizer must be careful to reload the variable every time it is used instead of holding a copy in a register. Examples of volatile variables are:
+# Hardware registers in peripherals (e.g., status registers)
+# Non-stack variables referenced within an interrupt service routine.
+# Variables shared by multiple tasks in a multi-threaded application.
+
+(a) Can a parameter be both const and volatile? Explain your answer.
+(b) Can a pointer be volatile? Explain your answer.
+(c) What is wrong with the following function?:
+
+```c
+int square(volatile int *ptr)
+{
+    return *ptr * *ptr;
+}
+``` 
+
+The answers are as follows:
+
+(a) Yes. An example is a read only status register. It is volatile because it can change unexpectedly. It is const because the program should not attempt to modify it.
+
+(b) Yes. Although this is not very common. An example is when an interrupt service routine modifies a pointer to a buffer.
+
+(c) The intent of the code is to return the square of the value pointed to by *ptr. However, since *ptr points to a volatile parameter, the compiler will generate code that looks something like this:
+
+```c
+int square(volatile int *ptr)
+{
+    int a,b;
+    a = *ptr;
+    b = *ptr;
+    return a * b;
+}
+``` 
+Since it is possible for the value of *ptr to change unexpectedly, it is possible for a and b to be different. Consequently, this code could return a number that is not a square! The correct way to code this is:
+
+```c
+long square(volatile int *ptr)
+{
+    int a;
+    a = *ptr;
+    return a * a;
+}
+```
+
+
+//-----------------------------------------------------------------------------
+8. 

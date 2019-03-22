@@ -159,4 +159,29 @@ int main(void) {
 }
 ```
 
+
 //-----------------------------------------------------------------------------
+4. What is semaphore?
+
+
+//-----------------------------------------------------------------------------
+5. Difference between mutexes and semaphores?
+
+
+//-----------------------------------------------------------------------------
+6.  Set an integer variable at the absolute address 0x67EF to the value 0x88AA. 
+    The compiler is a pure ANSI compiler. Write code to accomplish this task.
+
+```c
+int main(void)
+{
+    // TODO
+	return 0;
+}
+```
+
+
+//-----------------------------------------------------------------------------
+7.  What does the keyword volatile mean? Give some examples of its use.
+
+    What is wrong with the following function?: 
