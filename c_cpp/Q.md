@@ -184,4 +184,10 @@ int main(void)
 //-----------------------------------------------------------------------------
 7.  What does the keyword volatile mean? Give some examples of its use.
 
-    What is wrong with the following function?: 
+What is wrong with the following function?:
+```c
+int square(volatile int *ptr)
+{
+    return *ptr * *ptr;
+}
+``` 
