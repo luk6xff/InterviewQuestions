@@ -286,9 +286,9 @@ int main(void)
 //-----------------------------------------------------------------------------
 7. What does the keyword volatile mean? Give some examples of its use.
 A volatile variable is one that can change unexpectedly. Consequently, the compiler can make no assumptions about the value of the variable. In particular, the optimizer must be careful to reload the variable every time it is used instead of holding a copy in a register. Examples of volatile variables are:
-# Hardware registers in peripherals (e.g., status registers)
-# Non-stack variables referenced within an interrupt service routine.
-# Variables shared by multiple tasks in a multi-threaded application.
+> Hardware registers in peripherals (e.g., status registers)
+> Non-stack variables referenced within an interrupt service routine.
+> Variables shared by multiple tasks in a multi-threaded application.
 
 (a) Can a parameter be both const and volatile? Explain your answer.
 (b) Can a pointer be volatile? Explain your answer.
@@ -331,4 +331,25 @@ long square(volatile int *ptr)
 
 
 //-----------------------------------------------------------------------------
-8. 
+8. Is there anything wrong with this code snippet ?
+```cpp
+#include <memory>
+
+auto foo(std::unique_ptr<int> ptr) {
+  *ptr = 42;
+  return ptr;
+}
+
+int main() {
+  auto ptr = std::make_unique<int>();
+  ptr = foo(ptr);
+}
+```
+The correct answer is that this code won’t even compile. The std::unique_ptr type cannot be copied, so passing it as a parameter to a function will fail to compile.
+
+To convince the compiler that this is fine, std::move can be used:
+ptr = f(std::move(ptr));
+Follow-up questions
+The interview candidate might think that returning a noncopiable object from a function is also a compiler error, but in this case it’s allowed, thanks to copy elision. You can ask the candidate under what conditions copy elision is performed.
+
+Of course, the above construct with std::move is less than ideal. Ask the candidate how they would change the function f to make it better. For example, passing a (const) reference to the unique_ptr, or simply a reference to the int pointed to, is probably preferred.

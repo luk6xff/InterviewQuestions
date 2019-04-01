@@ -191,3 +191,20 @@ int square(volatile int *ptr)
     return *ptr * *ptr;
 }
 ``` 
+
+
+//-----------------------------------------------------------------------------
+8. Is there anything wrong with this code snippet ?
+```cpp
+#include <memory>
+
+auto foo(std::unique_ptr<int> ptr) {
+  *ptr = 42;
+  return ptr;
+}
+
+int main() {
+  auto ptr = std::make_unique<int>();
+  ptr = foo(ptr);
+}
+```
