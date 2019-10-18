@@ -1,9 +1,4 @@
-//-----------------------------------------------------------------------------
-1.  Implement a method to perform basic string compression
-    using the counts of repeated characters. For example, the
-    string aabcccccaaa would become a2b1c5a3. If the "compressed"
-    string would not become smaller than the original string,
-    your method should return the original string. [C/CPP]
+#### 1.  Implement a method to perform basic string compression using the counts of repeated characters. For example, the string aabcccccaaa would become a2b1c5a3. If the "compressed" string would not become smaller than the original string, your method should return the original string. [C/CPP]
 
 ```c
 #include <stdio.h>
@@ -53,9 +48,7 @@ int main(void) {
 }
 ```
 
-//-----------------------------------------------------------------------------
-2. Rotate Image: Given an image represented by an NxN matrix, where each pixel in the image is 4
-bytes, write a method to rotate the image by 90 degrees. Can you do this in place?
+#### 2. Rotate Image: Given an image represented by an NxN matrix, where each pixel in the image is 4 bytes, write a method to rotate the image by 90 degrees. Can you do this in place?
 
 ```c
 #include <stdio.h>
@@ -104,9 +97,7 @@ int main(void) {
 ```
 
 
-//-----------------------------------------------------------------------------
-3.  Remove Duplicates: Write code to remove duplicates from an unsorted single linked list.
-    How would you solve this problem if a temporary buffer is not allowed?
+#### 3.  Remove Duplicates: Write code to remove duplicates from an unsorted single linked list.How would you solve this problem if a temporary buffer is not allowed?
 
 ```cpp
 #include <iostream>
@@ -160,17 +151,11 @@ int main(void) {
 ```
 
 
-//-----------------------------------------------------------------------------
-4. What is semaphore?
+#### 4. What is semaphore, mutex, spinlock, critical section?
 
+#### 5. Differences between mutexes and semaphores?
 
-//-----------------------------------------------------------------------------
-5. Difference between mutexes and semaphores?
-
-
-//-----------------------------------------------------------------------------
-6.  Set an integer variable at the absolute address 0x67EF to the value 0x88AA. 
-    The compiler is a pure ANSI compiler. Write code to accomplish this task.
+#### 6.  Set an integer variable at the absolute address 0x67EF to the value 0x88AA. The compiler is a pure ANSI compiler. Write code to accomplish this task.
 
 ```c
 int main(void)
@@ -181,10 +166,9 @@ int main(void)
 ```
 
 
-//-----------------------------------------------------------------------------
-7.  What does the keyword volatile mean? Give some examples of its use.
+#### 7. What does the keyword volatile mean? Give some examples of its use. 
 
-What is wrong with the following function?:
+* What is wrong with the following function?:
 ```c
 int square(volatile int *ptr)
 {
@@ -193,8 +177,7 @@ int square(volatile int *ptr)
 ``` 
 
 
-//-----------------------------------------------------------------------------
-8. Is there anything wrong with this code snippet ?
+#### 8. Is there anything wrong with this code snippet ?
 ```cpp
 #include <memory>
 
