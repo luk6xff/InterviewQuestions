@@ -157,7 +157,7 @@ int main(void) {
 ```
 
 
-### 3.  Remove Duplicates: Write code to remove duplicates from an unsorted single linked list.How would you solve this problem if a temporary buffer is not allowed?
+#### 3.  Remove Duplicates: Write code to remove duplicates from an unsorted single linked list.How would you solve this problem if a temporary buffer is not allowed?
 
 ```cpp
 #include <iostream>
